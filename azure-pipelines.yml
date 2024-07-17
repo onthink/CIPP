@@ -13,6 +13,7 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       lecapikey=$(az staticwebapp secrets list --name swa-lec-cipp --query "properties.apiKey" | tr -d '"')
+      echo "abc: $lecapikey"
       echo "##vso[task.setvariable variable=deploymentTokenLEC]$lecapikey"
 
 - task: AzureCLI@2
@@ -23,6 +24,7 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       apikey=$(az staticwebapp secrets list --name swa-tta-cipp --query "properties.apiKey" | tr -d '"')
+      echo "abc: $apikey"
       echo "##vso[task.setvariable variable=deploymentTokenTTA]$apikey"
 
 - task: AzureCLI@2
@@ -33,6 +35,7 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       ttaintapikey=$(az staticwebapp secrets list --name swa-tta-cipp-int --query "properties.apiKey" | tr -d '"')
+      echo "abc: $ttaintapikey"
       echo "##vso[task.setvariable variable=deploymentTokenTTAInt]$ttaintapikey"
 
 - task: AzureStaticWebApp@0
