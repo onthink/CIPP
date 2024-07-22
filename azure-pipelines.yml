@@ -7,27 +7,21 @@ pool:
 steps:
 - task: AzureStaticWebApp@0
   displayName: "Deploy CIPP SWA to LEC"
-  env:
-    TOKEN: $(DP_LEC)
   retryCountOnTaskFailure: 2
   inputs:
     app_location: '/'
-    azure_static_web_apps_api_token: '$(TOKEN)'
+    azure_static_web_apps_api_token: '$(DP_LEC)'
 
 - task: AzureStaticWebApp@0
   displayName: "Deploy CIPP SWA to TTA"
-  env:
-    TOKEN: $(DP_TTA)
   retryCountOnTaskFailure: 2
   inputs:
     app_location: '/'
-    azure_static_web_apps_api_token: '$(TOKEN)'
+    azure_static_web_apps_api_token: '$(DP_TTA)'
 
 - task: AzureStaticWebApp@0
   displayName: "Deploy CIPP SWA to TTA Int"
-  env:
-    TOKEN: $(DP_TTA_INT)
-    retryCountOnTaskFailure: 2
+  retryCountOnTaskFailure: 2
   inputs:
     app_location: '/'
-    azure_static_web_apps_api_token: '$(TOKEN)'
+    azure_static_web_apps_api_token: '$(DP_TTA_INT)'
