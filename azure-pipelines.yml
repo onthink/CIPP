@@ -12,22 +12,22 @@ steps:
   retryCountOnTaskFailure: 2
   inputs:
     app_location: '/'
-    azure_static_web_apps_api_token: '$TOKEN'
+    azure_static_web_apps_api_token: '$(TOKEN)'
 
 - task: AzureStaticWebApp@0
   displayName: "Deploy CIPP SWA to TTA"
-  retryCountOnTaskFailure: 2
   env:
     TOKEN: $(DP_TTA)
+  retryCountOnTaskFailure: 2
   inputs:
     app_location: '/'
-    azure_static_web_apps_api_token: '$TOKEN'
+    azure_static_web_apps_api_token: '$(TOKEN)'
 
 - task: AzureStaticWebApp@0
   displayName: "Deploy CIPP SWA to TTA Int"
-  retryCountOnTaskFailure: 2
   env:
     TOKEN: $(DP_TTA_INT)
+    retryCountOnTaskFailure: 2
   inputs:
     app_location: '/'
-    azure_static_web_apps_api_token: '$TOKEN'
+    azure_static_web_apps_api_token: '$(TOKEN)'
