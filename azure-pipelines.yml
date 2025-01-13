@@ -8,17 +8,17 @@ steps:
 - task: AzureStaticWebApp@0
   displayName: "Deploy SWA to LEC"
   inputs:
-    app_location: '/CIPP'
+    app_location: '/'
     azure_static_web_apps_api_token: $(DP_LEC)
 
 - task: AzureStaticWebApp@0
   displayName: "Deploy SWA to TTA"
   inputs:
-    app_location: '/CIPP'
+    app_location: '/'
     azure_static_web_apps_api_token: $(DP_TTA)
 
 - task: AzureStaticWebApp@0
   displayName: "Deploy SWA to TTA Internal"
   inputs:
-    app_location: '/CIPP'
+    app_location: '/'
     azure_static_web_apps_api_token: $(DP_TTA_INT)
