@@ -1,0 +1,20 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: AzureStaticWebApp@0
+  displayName: "Deploy SWA to LEC"
+  inputs:
+    app_location: "/"
+    output_location: "/out"
+    azure_static_web_apps_api_token: $(DP_LEC)
+
+- task: AzureStaticWebApp@0
+  displayName: "Deploy SWA to TTA"
+  inputs:
+    app_location: "/"
+    output_location: "/out"
+    azure_static_web_apps_api_token: $(DP_TTA)
